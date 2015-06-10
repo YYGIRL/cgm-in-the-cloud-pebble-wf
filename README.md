@@ -11,4 +11,4 @@ Shows battery level of uploader and watch
 Displays name of person or Insulin On Board of pump
 Displays time and data
 Configuration file included
-Works on pebble and pebble time
+Works on pebble and pebble time watches
