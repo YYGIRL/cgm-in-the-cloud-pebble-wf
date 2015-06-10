@@ -1,5 +1,5 @@
 # cgm-in-the-cloud-pebble-wf
-CGM in the Cloud watchface. Showing blood sugars and trends on a pebble watch. Shows time of last reading, and delta of BG of last reading. Option to show mg/dL or mmol. 
+CGM in the Cloud pebble watchface. Showing blood sugars and trends on a pebble watch. Shows time of last reading, and delta of BG of last reading. Option to show mg/dL or mmol. 
 
 Vibrates on user configured low and high blood sugars, or can be turned off. Vibrations are snoozed and patterns changed on user configured settings. 
 
