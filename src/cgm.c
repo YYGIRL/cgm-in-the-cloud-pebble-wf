@@ -128,6 +128,7 @@ static const uint8_t MINUTEAGO = 60;
 static const uint16_t HOURAGO = 60*(60);
 static const uint32_t DAYAGO = 24*(60*60);
 static const uint32_t WEEKAGO = 7*(24*60*60);
+static const uint32_t TWOYEARSAGO = 2*365*(24*60*60);
 static const uint16_t MS_IN_A_SECOND = 1000;
 
 // Constants for string buffers
@@ -210,8 +211,8 @@ uint8_t DATAOFFLINE_VIBE = 1;
 // RANGE 0-240
 // IF YOU WANT TO WAIT LONGER TO GET CONDITION, INCREASE NUMBER
 static const uint8_t CGMOUT_WAIT_MIN = 15;
-static const uint8_t CGMOUT_INIT_WAIT_MIN = 6;
-static const uint8_t PHONEOUT_WAIT_MIN = 4;
+static const uint8_t CGMOUT_INIT_WAIT_MIN = 7;
+static const uint8_t PHONEOUT_WAIT_MIN = 5;
 
 // Control Messages
 // IF YOU DO NOT WANT A SPECIFIC MESSAGE, SET TO 111 (true)
@@ -1398,10 +1399,10 @@ static void load_bg() {
 	char happymsg_buffer65[26] = "TIME TO DIA BEAT*THIS!\0";
 	char happymsg_buffer83[26] = "PEDAL TO THE METAL! CK83\0";
 	char happymsg_buffer143[26] = "YOUR PEBBLE LOVES U TOO\0";
-  char happymsg_buffer107[26] = "TNN CYCLING FOR THE WIN!\0";
+	char happymsg_buffer107[26] = "TEAM NN RACING 4*THE*WIN\0";
 	char happymsg_buffer116[26] = "VICTORY LANE! RYAN REED\0";
 	char happymsg_buffer207[26] = "HILO HILO OFF 2TEST U GO\0";
-  char happymsg_buffer314[26] = "NO MORE PIE FOR*YOU\0";
+	char happymsg_buffer314[26] = "NO MORE PIE FOR*YOU\0";
   
 	// CODE START
   
@@ -1774,8 +1775,9 @@ static void load_cgmtime() {
       
       // check to see if we need to show receiver off icon
       if ( ((cgm_timeago_diff >= CGMOUT_WAIT_MIN) || ((strcmp(cgm_label_buffer, "") != 0) && (strcmp(cgm_label_buffer, "m") != 0))) 
-        || ( (((current_cgm_timeago / MINUTEAGO) >= CGMOUT_INIT_WAIT_MIN) || ((strcmp(cgm_label_buffer, "") != 0) && (strcmp(cgm_label_buffer, "m") != 0)))
-         && (init_loading_cgm_timeago == 111) && (ClearedOutage == 100) && (ClearedBTOutage == 100) ) ) {
+      || ( ( ((current_cgm_timeago < TWOYEARSAGO) && ((current_cgm_timeago / MINUTEAGO) >= CGMOUT_INIT_WAIT_MIN)) 
+          || ((strcmp(cgm_label_buffer, "") != 0) && (strcmp(cgm_label_buffer, "m") != 0)) )
+           && (init_loading_cgm_timeago == 111) && (ClearedOutage == 100) && (ClearedBTOutage == 100) ) ) {
 	      // set receiver off icon
 	      //APP_LOG(APP_LOG_LEVEL_DEBUG, "LOAD CGMTIME, SET RCVR OFF ICON, CGM TIMEAGO DIFF: %d", cgm_timeago_diff);
 	      //APP_LOG(APP_LOG_LEVEL_DEBUG, "LOAD CGMTIME, SET RCVR OFF ICON, LABEL: %s", cgm_label_buffer);
@@ -1825,7 +1827,7 @@ static void load_apptime(){
       //APP_LOG(APP_LOG_LEVEL_DEBUG, "LOAD APPTIME, CURRENT APP TIMEAGO: %lu", current_app_timeago);
       
 	  app_timeago_diff = (current_app_timeago / MINUTEAGO);
-	  if ( (current_app_timeago < HOURAGO) && (app_timeago_diff >= PHONEOUT_WAIT_MIN) ) {
+	  if ( (current_app_timeago < TWOYEARSAGO) && (app_timeago_diff >= PHONEOUT_WAIT_MIN) ) {
               
         // erase cgm ago times and cgm icon
         text_layer_set_text(cgmtime_layer, "");
