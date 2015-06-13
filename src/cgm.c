@@ -233,12 +233,6 @@ uint8_t HardCodeNoVibrations = 100;
 uint8_t HardCodeNoAnimations = 100;
 uint8_t HardCodeAllAnimations = 100;
 
-// Control Vibrations for Config File
-// IF YOU WANT NO VIBRATIONS, SET TO 111 (true)
-uint8_t TurnOffAllVibrations = 100;
-// IF YOU WANT LESS INTENSE VIBRATIONS, SET TO 111 (true)
-uint8_t TurnOffStrongVibrations = 100;
-
 // Control Raw data
 // If you want to turn off vibrations for calculated raw, set to 111 (true)
 uint8_t TurnOffVibrationsCalcRaw = 100;
@@ -246,6 +240,12 @@ uint8_t TurnOffVibrationsCalcRaw = 100;
 uint8_t TurnOnUnfilteredRaw = 111;
 
 // ** END OF CONSTANTS THAT CAN BE CHANGED; DO NOT CHANGE IF YOU DO NOT KNOW WHAT YOU ARE DOING **
+
+// Control Vibrations for Config File
+// IF YOU WANT NO VIBRATIONS, SET TO 111 (true)
+uint8_t TurnOffAllVibrations = 100;
+// IF YOU WANT LESS INTENSE VIBRATIONS, SET TO 111 (true)
+uint8_t TurnOffStrongVibrations = 100;
 
 // Bluetooth Timer Wait Time, in Seconds
 // RANGE 0-240
