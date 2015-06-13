@@ -483,7 +483,7 @@ Pebble.addEventListener("appmessage",
 
 Pebble.addEventListener("showConfiguration", function(e) {
                         console.log("Showing Configuration", JSON.stringify(e));
-                        Pebble.openURL('http://ducks_cgm.bitbucket.org/cgm-pebble/cgmdevconfig.html');
+                        Pebble.openURL('http://nightscout.github.io/cgm-pebble/s1-config-7.html');
                         });
 
 Pebble.addEventListener("webviewclosed", function(e) {
