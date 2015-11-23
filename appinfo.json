@@ -127,7 +127,7 @@
     "shortName": "CGM",
     "uuid": "0629aaee-0eb8-4036-b1d3-20ac845b4922",
     "versionCode": 1,
-    "versionLabel": "7.3",
+    "versionLabel": "7.4",
     "watchapp": {
         "watchface": true
     }
